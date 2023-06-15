@@ -1,0 +1,76 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use {{ namespacedParentModel }};
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Response;
+
+class {{ class }}
+{
+    use AuthorizesRequests;
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param \{{ namespacedParentModel }} ${{ parentModelVariable }}
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
+    public function index({{ parentModel }} ${{ parentModelVariable }}): AnonymousResourceCollection
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \{{ namespacedParentModel }} ${{ parentModelVariable }}
+     * @return \Illuminate\Http\Resources\Json\JsonResource
+     */
+    public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }}): JsonResource
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param \{{ namespacedParentModel }} ${{ parentModelVariable }}
+     * @param \{{ namespacedModel }} ${{ modelVariable }}
+     * @return \Illuminate\Http\Resources\Json\JsonResource
+     */
+    public function show({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): JsonResource
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \{{ namespacedParentModel }} ${{ parentModelVariable }}
+     * @param \{{ namespacedModel }} ${{ modelVariable }}
+     * @return \Illuminate\Http\Resources\Json\JsonResource
+     */
+    public function update(Request $request, {{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): JsonResource
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param \{{ namespacedParentModel }} ${{ parentModelVariable }}
+     * @param \{{ namespacedModel }} ${{ modelVariable }}
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): Response
+    {
+        return response()->noContent();
+    }
+}
