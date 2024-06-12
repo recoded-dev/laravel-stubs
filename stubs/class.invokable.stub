@@ -1,0 +1,26 @@
+<?php
+
+namespace {{ namespace }};
+
+final class {{ class }}
+{
+    /**
+     * Create a new class instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Invoke the class instance.
+     *
+     * @return void
+     */
+    public function __invoke(): void
+    {
+
+    }
+}
