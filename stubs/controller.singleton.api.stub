@@ -5,8 +5,9 @@ namespace {{ namespace }};
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Response;
 
-class {{ class }}
+final class {{ class }}
 {
     use AuthorizesRequests;
 
@@ -14,9 +15,9 @@ class {{ class }}
      * Store the newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return never
+     * @return \Illuminate\Http\Resources\Json\JsonResource
      */
-    public function store(Request $request): never
+    public function store(Request $request): JsonResource
     {
         abort(404);
     }
@@ -45,9 +46,9 @@ class {{ class }}
     /**
      * Remove the resource from storage.
      *
-     * @return never
+     * @return \Illuminate\Http\Response
      */
-    public function destroy(): never
+    public function destroy(): Response
     {
         abort(404);
     }

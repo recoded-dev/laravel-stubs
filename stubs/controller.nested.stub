@@ -8,8 +8,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
-class {{ class }}
+final class {{ class }}
 {
     use AuthorizesRequests;
 
@@ -21,7 +22,7 @@ class {{ class }}
      */
     public function index({{ parentModel }} ${{ parentModelVariable }}): View
     {
-        //
+        $this->authorize('viewAny', {{ model }}::class);
     }
 
     /**
@@ -32,7 +33,7 @@ class {{ class }}
      */
     public function create({{ parentModel }} ${{ parentModelVariable }}): View
     {
-        //
+        $this->authorize('create', {{ model }}::class);
     }
 
     /**
@@ -56,7 +57,7 @@ class {{ class }}
      */
     public function show({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): View
     {
-        //
+        $this->authorize('view', ${{ modelVariable }});
     }
 
     /**
@@ -68,7 +69,7 @@ class {{ class }}
      */
     public function edit({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): View
     {
-        //
+        $this->authorize('update', ${{ modelVariable }});
     }
 
     /**
@@ -93,6 +94,10 @@ class {{ class }}
      */
     public function destroy({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): RedirectResponse
     {
-        //
+        $this->authorize('delete', ${{ modelVariable }});
+
+        ${{ modelVariable }}->delete();
+
+        return redirect()->back();
     }
 }

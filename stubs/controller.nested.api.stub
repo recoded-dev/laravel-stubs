@@ -10,7 +10,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Response;
 
-class {{ class }}
+final class {{ class }}
 {
     use AuthorizesRequests;
 
@@ -22,7 +22,7 @@ class {{ class }}
      */
     public function index({{ parentModel }} ${{ parentModelVariable }}): AnonymousResourceCollection
     {
-        //
+        $this->authorize('viewAny', {{ model }}::class);
     }
 
     /**
@@ -46,7 +46,7 @@ class {{ class }}
      */
     public function show({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): JsonResource
     {
-        //
+        $this->authorize('view', ${{ modelVariable }});
     }
 
     /**
@@ -71,6 +71,10 @@ class {{ class }}
      */
     public function destroy({{ parentModel }} ${{ parentModelVariable }}, {{ model }} ${{ modelVariable }}): Response
     {
+        $this->authorize('delete', ${{ modelVariable }});
+
+        ${{ modelVariable }}->delete();
+
         return response()->noContent();
     }
 }

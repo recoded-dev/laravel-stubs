@@ -5,10 +5,10 @@ namespace {{ namespace }};
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
- * @property int $x_id
- * @property int $y_id
+ * @property int $first_id
+ * @property int $second_id
  */
-class {{ class }} extends Pivot
+final class {{ class }} extends Pivot
 {
     //
 }

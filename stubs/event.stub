@@ -2,9 +2,11 @@
 
 namespace {{ namespace }};
 
+use Illuminate\Queue\Attributes\WithoutRelations;
 use Illuminate\Queue\SerializesModels;
 
-class {{ class }}
+#[WithoutRelations]
+final readonly class {{ class }}
 {
     use SerializesModels;
 
@@ -13,7 +15,7 @@ class {{ class }}
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(public Model $model)
     {
         //
     }

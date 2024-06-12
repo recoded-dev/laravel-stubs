@@ -8,7 +8,7 @@ use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 /**
  * @implements \Illuminate\Contracts\Database\Eloquent\CastsAttributes<x, y>
  */
-class {{ class }} implements CastsAttributes
+final class {{ class }} implements CastsAttributes
 {
     /**
      * Cast the given value.

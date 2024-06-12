@@ -4,7 +4,7 @@ namespace {{ namespace }};
 
 use Illuminate\Database\Seeder;
 
-class {{ class }} extends Seeder
+final class {{ class }} extends Seeder
 {
     /**
      * Run the database seeds.

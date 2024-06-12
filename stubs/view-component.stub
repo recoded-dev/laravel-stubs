@@ -2,10 +2,10 @@
 
 namespace {{ namespace }};
 
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
-class {{ class }} extends Component
+final class {{ class }} extends Component
 {
     /**
      * Create a new component instance.

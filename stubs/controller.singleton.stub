@@ -7,16 +7,16 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 
-class {{ class }}
+final class {{ class }}
 {
     use AuthorizesRequests;
 
     /**
      * Show the form for creating the resource.
      *
-     * @return never
+     * @return \Illuminate\Contracts\View\View
      */
-    public function create(): never
+    public function create(): View
     {
         abort(404);
     }
@@ -25,9 +25,9 @@ class {{ class }}
      * Store the newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return never
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request): never
+    public function store(Request $request): RedirectResponse
     {
         abort(404);
     }
@@ -66,9 +66,9 @@ class {{ class }}
     /**
      * Remove the resource from storage.
      *
-     * @return never
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(): never
+    public function destroy(): RedirectResponse
     {
         abort(404);
     }

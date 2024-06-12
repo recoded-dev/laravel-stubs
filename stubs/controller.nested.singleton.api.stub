@@ -7,8 +7,9 @@ use {{ namespacedParentModel }};
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Response;
 
-class {{ class }}
+final class {{ class }}
 {
     use AuthorizesRequests;
 
@@ -17,11 +18,11 @@ class {{ class }}
      *
      * @param \Illuminate\Http\Request $request
      * @param \{{ namespacedParentModel }} ${{ parentModelVariable }}
-     * @return never
+     * @return \Illuminate\Http\Resources\Json\JsonResource
      */
-    public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }}): never
+    public function store(Request $request, {{ parentModel }} ${{ parentModelVariable }}): JsonResource
     {
-        abort(404);
+        //
     }
 
     /**
@@ -32,7 +33,7 @@ class {{ class }}
      */
     public function show({{ parentModel }} ${{ parentModelVariable }}): JsonResource
     {
-        //
+        $this->authorize('view', ${{ parentModelVariable }});
     }
 
     /**
@@ -51,10 +52,14 @@ class {{ class }}
      * Remove the resource from storage.
      *
      * @param \{{ namespacedParentModel }} ${{ parentModelVariable }}
-     * @return never
+     * @return \Illuminate\Http\Response
      */
-    public function destroy({{ parentModel }} ${{ parentModelVariable }}): never
+    public function destroy({{ parentModel }} ${{ parentModelVariable }}): Response
     {
-        abort(404);
+        $this->authorize('delete', ${{ parentModelVariable }});
+
+        ${{ parentModelVariable }}->delete();
+
+        return response()->noContent();
     }
 }
